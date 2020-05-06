@@ -7,6 +7,8 @@ plot1 <- {
        na.strings = "?", sep = ";", skip = 66636, nrows = 2879) ##reads in select rows
   names(data) <- header
   data <- mutate(data, Date = dmy(data$Date))
+  png(filename = "plot1.png")
   hist(data$Global_active_power, col = "red", breaks = 12, main = "Global Active Power",
        xlab = "Global Active Power (kilowatts)", ylab = "Frequency")
+  dev.off()
 }
